@@ -1,9 +1,8 @@
-var mapArray = [];
-var mapArrayShuffleAndSort = [];
+var mapArray = []; //Global array that contains the text
 
 function map() {
-    var text = $('.text').text();
-    var x = 0;
+    var text = $('.text').text(); //Get the text from the markup
+    var x = 0; //Variables initialization
     var str = [];
     var tab = [];
     var j = 0;
@@ -48,27 +47,31 @@ function map() {
 }
 
 function shuffleAndSort() {
-	mapArray.sort();
+	mapArray.sort(); //Sort the array
 }
 
 function reduce () {
+	//Transform the array alongside the word into the number of 1 contains
 	for (var i = 0; i < mapArray.length; i++) {
-		mapArray[i][1] = mapArray[i][1].length;
+		mapArray[i][1] = mapArray[i][1].length; //Get the number of 1 with the length of the array
 	}
 }
 
 function main() {
-	map();
+	map(); //Run the map function
+	//Display the map output in a formated way
 	$('.map').append("MAP : <br>");
 	for (var i = 0; i < mapArray.length; i++) {
 		$('.map').append("(" + mapArray[i][0] + ",[" + mapArray[i][1] + "]" + ") <br>");
 	}
-	shuffleAndSort();
+	shuffleAndSort(); //Run the shuffleAndSort function
+	//Display the shuffleAndSort output in a formated way
 	$('.shuffleandsort').append("SHUFFLE AND SORT : <br>");
 	for (var i = 0; i < mapArray.length; i++) {
 		$('.shuffleandsort').append("(" + mapArray[i][0] + ",[" + mapArray[i][1] + "]" + ") <br>");
 	}
-	reduce();
+	reduce(); //Run the reduce function
+	//Display the reduce output in a formated way
 	$('.reduce').append("RESULT AFTER REDUCE : <br>");
 	for (var i = 0; i < mapArray.length; i++) {
 		$('.reduce').append(mapArray[i][0] + " " + mapArray[i][1] + "<br>");
